@@ -834,6 +834,16 @@ html.nt-skip #ntNotice{display:none!important}
 .ntc-check input:checked + .ntc-box path{stroke-dashoffset:0}
 .ntc-check input:focus-visible + .ntc-box{outline:2px solid #f3f0e6;outline-offset:2px}
 
+.ntc-credit{
+  margin:6px 0 0;padding-top:10px;border-top:1px dashed rgba(243,240,230,.10);
+  font-size:11px;font-weight:400;letter-spacing:.2px;color:#6f7f75;line-height:1.8;
+}
+.ntc-credit a{
+  color:#a7b6ab;font-weight:400;text-decoration:none;border-bottom:1px dotted rgba(243,240,230,.28);
+  padding:0 1px;transition:color .2s,border-color .2s;
+}
+.ntc-credit a:hover,.ntc-credit a:focus-visible{color:#8fce8a;border-color:#8fce8a}
+
 @keyframes ntcBack{from{opacity:0}}
 @keyframes ntcCard{from{opacity:0;transform:translateY(28px) scale(.93)}}
 @keyframes ntcSheet{from{transform:translateY(100%)}}
@@ -976,7 +986,7 @@ html.nt-skip #ntNotice{display:none!important}
     function onKey(e){
       if(e.key==='Escape'){ e.preventDefault(); e.stopPropagation(); close(); return; }
       if(e.key==='Tab'){
-        var f=[].slice.call(root.querySelectorAll('button,input')).filter(function(n){ return n.offsetParent!==null; });
+        var f=[].slice.call(root.querySelectorAll('button,input,a[href]')).filter(function(n){ return n.offsetParent!==null; });
         var a=document.activeElement;
         if(!f.length) return;
         if(!root.contains(a)){ e.preventDefault(); f[0].focus(); }
